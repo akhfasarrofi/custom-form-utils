@@ -24,11 +24,6 @@
     "minor": "npm version minor",
     "patch": "npm version patch"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{ts, tsx}": [
       "eslint --fix --no-cache --max-warnings=0",
