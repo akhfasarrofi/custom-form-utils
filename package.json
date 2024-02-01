@@ -18,7 +18,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --no-cache --max-warnings 0",
     "preview": "vite preview",
-    "prepare": "husky",
+    "prepare": "husky install",
     "precommit": "lint-staged",
     "major": "npm version major",
     "minor": "npm version minor",
