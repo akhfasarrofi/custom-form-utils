@@ -6,7 +6,7 @@ echo '🏗️👷 Styling, testing and building your project before committing'
 # add extend memory
 export NODE_OPTIONS="--max-old-space-size=8192"
 
-npm run precommit ||
+pnpm precommit ||
 (
         echo '🔧🔨 ESLint Check Failed. Please check the output above for specific issues. 🔧🔨'
         false; 
@@ -14,7 +14,7 @@ npm run precommit ||
 
 
 # Check Testing Standards
-# npm run test ||
+# pnpm test ||
 # (
 #         echo '🔧🔨 Testing Failed. Make the required changes listed above, add changes and try to commit again. 🔧🔨'
 #         false; 
@@ -23,7 +23,7 @@ npm run precommit ||
 # If everything passes... Now we can commit
 echo '🤔🤔🤔🤔... Alright... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
 
-# npm run build ||
+# pnpm build ||
 # (
 #     echo '❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
 #             Next build failed: View the errors above to see why. 
