@@ -13,6 +13,10 @@
   ],
   "author": "dopassss",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akhfasarrofi/custom-form-utils.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
