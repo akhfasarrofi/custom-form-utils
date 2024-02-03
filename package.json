@@ -1,6 +1,5 @@
 {
   "name": "custom-form-utils",
-  "private": true,
   "version": "0.1.0",
   "type": "module",
   "main": "lib/cjs/index.js",
@@ -25,7 +24,8 @@
     "major": "npm version major",
     "minor": "npm version minor",
     "patch": "npm version patch",
-    "postversion": "git push origin main && git push origin --tags && npm publish --access public",
+    "postversion": "git push origin main && git push origin --tags",
+    "publish": "npm publish --access public",
     "prepare": "husky install",
     "precommit": "lint-staged"
   },
