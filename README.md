@@ -58,11 +58,6 @@ import { bundle } from 'custom-form-utils'
 - `notification-success (success)` - Function to trigger an success notification
 - `notification-warning (warning)` - Function to trigger an warning notification
 
-### http-request
-- `http-request-list (listRequest)` - Makes a GET request to the specified URL and returns the response data array.
-- `http-request-post (postRequest)` - Makes a POST request to the specified URL with the provided request body and returns the response data.
-- `http-request-single (singleRequest)` - Makes a GET request to the specified URL and returns the response data object.
-
 ### custom date
 - `fromNow` - Converts a timestamp to a human-readable relative time.
 - `startOfTime` - Returns the start of a given time period in a specified format.
