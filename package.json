@@ -2,8 +2,9 @@
   "name": "custom-form-utils",
   "version": "0.1.1",
   "type": "module",
-  "main": "lib/cjs/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/src/index.d.ts",
   "keywords": [
     "custom-form-antd",
     "library",
@@ -16,6 +17,19 @@
     "type": "git",
     "url": "https://github.com/akhfasarrofi/custom-form-utils.git"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/src/index.d.ts"
+    }
+  },
+  "files": [
+    "/dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -24,8 +38,7 @@
     "major": "npm version major",
     "minor": "npm version minor",
     "patch": "npm version patch",
-    "postversion": "git push origin main && git push origin --tags",
-    "publish": "npm publish --access public",
+    "postversion": "git push origin main && git push origin --tags && npm publish --access public",
     "prepare": "husky install",
     "precommit": "lint-staged"
   },

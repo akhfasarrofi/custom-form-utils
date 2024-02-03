@@ -8,12 +8,14 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      name: 'custom-form-utils',
-      formats: ['es'],
+      name: 'Custsom Form Utils',
+      fileName: format => `index.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'antd', 'react-dom'], // Add your external dependencies here
       plugins: [dts()],
     },
+    sourcemap: true,
+    emptyOutDir: true,
   },
 });
