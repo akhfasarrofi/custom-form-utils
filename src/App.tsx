@@ -1,8 +1,5 @@
-function App() {
-  console.log("app");
-  const a = "";
-
-  return <div>test</div>;
-}
+const App = () => {
+  return <div>App</div>;
+};
 
 export default App;
