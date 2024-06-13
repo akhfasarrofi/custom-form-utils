@@ -16,8 +16,9 @@
     "allowSyntheticDefaultImports": true,
 
     /* Linting */
-    "strict": true,
+    "strict": true
   },
   "include": [".eslintrc.cjs", "src", "vite.config.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "extends": "@total-typescript/tsconfig/tsc/no-dom/library"
 }
