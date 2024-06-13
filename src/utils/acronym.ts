@@ -2,9 +2,9 @@
  * Generates an acronym and a corresponding background based on the input name.
  *
  * @param {string} name - The input name from which to generate the acronym.
- * @returns {AcronymResult} An object containing the generated background and acronym.
+ * @returns {IAcronymResult} An object containing the generated background and acronym.
  */
-interface AcronymResult {
+interface IAcronymResult {
   background: string;
   acronym: string;
 }
@@ -26,7 +26,7 @@ const liniearGradient = [
   'linear-gradient(to top, #96E4DF, #4DCCC6)',
 ];
 
-const getAcronym = (name: string): AcronymResult => {
+const getAcronym = (name: string): IAcronymResult => {
   const splitName = name?.split(' ');
   let acronym: string = name || '';
 
@@ -45,7 +45,7 @@ const getAcronym = (name: string): AcronymResult => {
       .reduce((arr, next) => arr + (next.charCodeAt(0) || 0), 0) %
     liniearGradient.length;
 
-  return { background: liniearGradient[randomColorIndex], acronym };
+  return { background: liniearGradient[randomColorIndex]!, acronym };
 };
 
 export default getAcronym;

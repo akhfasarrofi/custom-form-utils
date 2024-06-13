@@ -1,4 +1,8 @@
-import dayjs, { Dayjs, ManipulateType } from 'dayjs';
+import 'dayjs/locale/id';
+
+import dayjs, { Dayjs, type ManipulateType } from 'dayjs';
+
+dayjs.locale('id');
 
 /**
  * Converts a timestamp to a human-readable relative time.
@@ -41,84 +45,70 @@ const fromNow = (timestamp: number | string): string => {
  * Returns the start of a given time period in a specified format.
  * @param {ManipulateType} type The type of time period (e.g., 'day', 'month', 'year').
  * @param {string} format The desired output format for the date/time.
- * @returns {string} The start of the specified time period in the specified format.
- * @example startOfTime("day", "YYYY-MM-DD") // Returns the start of the current day in YYYY-MM-DD format.
+ * @returns The resulting date after adding the specified value of the given type.
  */
-const startOfTime = (type: ManipulateType, format: string): string => {
+const startDate = (type: ManipulateType, format?: string): string => {
+  if (format) {
+    return dayjs().startOf(type).format(format);
+  }
   return dayjs().startOf(type).format(format);
 };
 
 /**
  * Returns the end of a given time period in a specified format.
  * @param {ManipulateType} type The type of time period (e.g., 'day', 'month', 'year').
- * @param {string} format The desired output format for the date/time.
- * @returns {string} The end of the specified time period in the specified format.
- * @example endOfTime("day", "YYYY-MM-DD") // Returns the end of the current day in YYYY-MM-DD format.
+ * @param {string} format The format to use.
+ * @returns The resulting date after adding the specified value of the given type.
  */
-const endOfTime = (type: ManipulateType, format: string): string => {
-  return dayjs().endOf(type).format(format);
+const endDate = (type: ManipulateType, format?: string) => {
+  if (format) {
+    return dayjs().endOf(type).format(format);
+  }
+  return dayjs().endOf(type);
 };
 
 /**
  * Formats a date or timestamp using the specified format.
  * @param {string} format The format to use for the returned date string (exp: YYYY-MM-DD)
  * @param {string} format The format to use.
- * @returns {string} The formatted date string.
- * @example formatDate("2022-02-20", "YYYY-MM-DD") // Returns "2022-02-20"
+ * @returns The resulting date after adding the specified value of the given type.
  */
-const formatDate = (
+const dates = (
   value: string | undefined | Dayjs | null | Date,
   format?: string
-): string => {
-  return dayjs(value).format(format);
-};
-
-/**
- * Returns the current date, formatted according to the provided format string.
- * @param {string} format The format string used to format the date. Follows the formatting rules of the dayjs library.
- * @returns {string} The current date, formatted according to the provided format string.
- * @example defaultDate("YYYY-MM-DD") // Returns the current date in YYYY-MM-DD format.
- */
-const defaultDate = (format: string): string => {
-  return dayjs().format(format);
-};
-
-/**
- * Returns the date/time of a future time period in a specified format.
- * @param {number} value The number of time periods to add.
- * @param {ManipulateType} type The type of time period (e.g., 'day', 'month', 'year').
- * @param {string} format The desired output format for the date/time.
- * @returns {string} The date/time of the future time period in the specified format.
- */
-const nextTime = (
-  value: number,
-  type: ManipulateType,
-  format: string
-): string => {
-  return dayjs().add(value, type).format(format);
+) => {
+  if (format) {
+    return dayjs(value).format(format);
+  }
+  return dayjs(value);
 };
 
 /**
  * Returns the date/time of a past time period in a specified format.
  * @param {number} value The number of time periods to subtract.
  * @param {ManipulateType} type The type of time period (e.g., 'day', 'month', 'year').
- * @param {string} format The desired output format for the date/time.
- * @returns {string} The date/time of the past time period in the specified format.
+ * @returns The resulting date after adding the specified value of the given type.
  */
-const lastTime = (
-  value: number,
-  type: ManipulateType,
-  format: string
-): string => {
-  return dayjs().subtract(value, type).format(format);
+const substract = (value: number, type: ManipulateType, format?: string) => {
+  if (format) {
+    return dayjs().subtract(value, type).format(format);
+  }
+  return dayjs().subtract(value, type);
 };
 
-export {
-  fromNow,
-  startOfTime,
-  endOfTime,
-  formatDate,
-  defaultDate,
-  nextTime,
-  lastTime,
+/**
+ * Adds a specified value of a given type to the current date and returns the result.
+ * @param value - The value to add.
+ * @param type - The type of manipulation to perform on the date.
+ * @param format - (Optional) The format string to use when formatting the resulting date.
+ * @returns The resulting date after adding the specified value of the given type.
+ */
+const addDate = (value: number, type: ManipulateType, format?: string) => {
+  if (format) {
+    return dayjs().add(value, type).format(format);
+  }
+
+  return dayjs().add(value, type);
 };
+
+export { addDate, dates, endDate, fromNow, startDate, substract };
