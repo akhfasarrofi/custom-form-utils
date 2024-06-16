@@ -6,16 +6,16 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: upnpmtu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: bun/action-setup@v2
+      - uses: pnpm/action-setup@v2
         with:
           version: 7
       - uses: actions/setup-node@v3
         with:
           node-version: 20.x
-          cache: "bun"
+          cache: "pnpm"
 
-      - run: bun install --frozen-lockfile
-      - run: bun run lint && bun run build
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run lint && pnpm run build
