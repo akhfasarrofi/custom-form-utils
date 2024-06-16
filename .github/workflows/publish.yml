@@ -14,7 +14,7 @@ permissions:
 jobs:
   publish:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    runs-on: upnpmtu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
