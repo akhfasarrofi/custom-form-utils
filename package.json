@@ -37,7 +37,7 @@
     "preview": "vite preview",
     "changeset": "changeset",
     "changeset-v": "changeset version",
-    "changeset-p": "changeset version",
+    "release": "changeset publish",
     "postversion": "git push origin --tags",
     "prepare": "husky install",
     "precommit": "lint-staged"
