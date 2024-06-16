@@ -35,10 +35,9 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --no-cache --max-warnings=0",
     "preview": "vite preview",
-    "major": "npm version major",
-    "minor": "npm version minor",
-    "patch": "npm version patch",
-    "postversion": "git push origin main && git push origin --tags && npm publish --access public",
+    "changeset": "changeset",
+    "changeset-v": "changeset version",
+    "changeset-p": "changeset publish",
     "prepare": "husky install",
     "precommit": "lint-staged"
   },
