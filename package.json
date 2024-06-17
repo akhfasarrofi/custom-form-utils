@@ -3,8 +3,8 @@
   "version": "0.2.1",
   "type": "module",
   "private": false,
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "keywords": [
     "custom-form-antd",
     "library",
@@ -16,13 +16,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/akhfasarrofi/custom-form-utils.git"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js",
-      "types": "./dist/src/index.d.ts"
-    }
   },
   "files": [
     "dist"
@@ -61,16 +54,17 @@
     "react-dom": "^18"
   },
   "peerDependencies": {
-    "react": "^18",
-    "react-dom": "^18",
     "crypto-js": "^4.2.0",
+    "dayjs": "^1.11.10",
     "js-cookie": "^3.0.5",
-    "dayjs": "^1.11.10"
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@total-typescript/tsconfig": "^1.0.4",
     "@types/crypto-js": "^4.2.2",
     "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20.14.2",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
