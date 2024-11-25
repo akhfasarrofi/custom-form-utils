@@ -30,7 +30,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && typedoc",
+    "build": "tsc && vite build",
     "build:docs": "typedoc",
     "dev:docs": "http-server docs",
     "lint": "eslint .",
@@ -39,9 +39,7 @@
     "changeset": "changeset",
     "changeset-v": "changeset version",
     "release": "changeset publish",
-    "postversion": "git push origin --tags",
-    "prepare": "husky install",
-    "precommit": "lint-staged"
+    "postversion": "git push origin --tags"
   },
   "peerDependencies": {
     "react": "^18",
@@ -74,11 +72,5 @@
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
     "vite-plugin-dts": "^4.3.0"
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js}": [
-      "eslint",
-      "git add"
-    ]
   }
 }
