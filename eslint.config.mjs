@@ -19,6 +19,7 @@ export default combine(
     ignores: [
       '**/.github/*',
       '**/node_modules/*',
+      '**/docs/*',
       '**/dist/*',
       '**/tsconfig.json',
       '**/tsconfig-build.json',
