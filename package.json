@@ -1,7 +1,7 @@
 {
   "name": "custom-form-utils",
   "type": "module",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "private": false,
   "author": "dopassss",
   "license": "MIT",
