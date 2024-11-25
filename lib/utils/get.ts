@@ -7,27 +7,24 @@
  * @param {K} defaultValue - The default value if the path is not found or results in an undefined value.
  * @returns {K} - The value found within the object based on the path, or the default value if the path is not found.
  */
-const get = <T extends object, K>(
-  obj: T,
-  path: string,
-  defaultValue: K
-): K | undefined => {
-  const pathArray = path.split('.');
-  let result: unknown = obj;
+function get<T extends object, K>(obj: T, path: string, defaultValue: K): K | undefined {
+  const pathArray = path.split('.')
+  let result: unknown = obj
 
-  pathArray.forEach(key => {
+  pathArray.forEach((key) => {
     if (
-      result &&
-      typeof result === 'object' &&
-      key in (result as Record<string, unknown>)
+      result
+      && typeof result === 'object'
+      && key in (result as Record<string, unknown>)
     ) {
-      result = (result as Record<string, unknown>)[key];
-    } else {
-      result = defaultValue;
+      result = (result as Record<string, unknown>)[key]
     }
-  });
+    else {
+      result = defaultValue
+    }
+  })
 
-  return result !== undefined ? (result as K) : defaultValue;
-};
+  return result !== undefined ? (result as K) : defaultValue
+}
 
-export default get;
+export default get

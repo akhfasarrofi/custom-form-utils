@@ -6,16 +6,16 @@
  * @returns {Partial<T>} - A new object with the specified keys omitted.
  */
 
-const omit = <T>(obj: T, keysToOmit: (keyof T)[]): Partial<T> => {
-  const result: Partial<T> = {};
+function omit<T>(obj: T, keysToOmit: (keyof T)[]): Partial<T> {
+  const result: Partial<T> = {}
 
   Object.keys(obj as object).forEach((key: string) => {
     if (!keysToOmit.includes(key as keyof T)) {
-      result[key as keyof T] = obj[key as keyof T];
+      result[key as keyof T] = obj[key as keyof T]
     }
-  });
+  })
 
-  return result;
-};
+  return result
+}
 
-export default omit;
+export default omit

@@ -1,9 +1,0 @@
-module.exports = {
-    trailingComma: "es5",
-    tabWidth: 2,
-    semi: true,
-    singleQuote: true,
-    endOfLine: 'auto',
-    arrowParens: 'avoid',
-    bracketSpacing: true
-}

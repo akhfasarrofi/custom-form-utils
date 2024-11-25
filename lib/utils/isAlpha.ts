@@ -3,8 +3,8 @@
  * @param char - The character to check.
  * @returns True if the character is an alphabet, false otherwise.
  */
-const isAlpha = (char: string): boolean => {
-  return /^[a-zA-Z]+$/.test(char);
-};
+function isAlpha(char: string): boolean {
+  return /^[a-z]+$/i.test(char)
+}
 
-export default isAlpha;
+export default isAlpha

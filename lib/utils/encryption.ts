@@ -1,4 +1,4 @@
-import CryptoJS from 'crypto-js';
+import CryptoJS from 'crypto-js'
 
 const encryption = {
   /**
@@ -8,7 +8,7 @@ const encryption = {
    * @returns {string} The MD5 encrypted string.
    */
   encryptWithMD5: (text: string, key: string): string => {
-    return CryptoJS.MD5(text + key).toString();
+    return CryptoJS.MD5(text + key).toString()
   },
 
   /**
@@ -18,7 +18,7 @@ const encryption = {
    * @returns {string} The AES encrypted string.
    */
   encryptWithAES: (text: string, key: string): string => {
-    return CryptoJS.AES.encrypt(text.toString(), key).toString();
+    return CryptoJS.AES.encrypt(text.toString(), key).toString()
   },
 
   /**
@@ -28,15 +28,16 @@ const encryption = {
    * @returns {string} The decrypted text.
    */
   decryptWithAES: (ciphertext: string, key: string): string => {
-    const bytes = CryptoJS.AES.decrypt(ciphertext, key);
-    let originalText;
+    const bytes = CryptoJS.AES.decrypt(ciphertext, key)
+    let originalText
     try {
-      originalText = bytes.toString(CryptoJS.enc.Utf8);
-    } catch (error) {
-      originalText = bytes.toString();
+      originalText = bytes.toString(CryptoJS.enc.Utf8)
     }
-    return originalText;
+    catch {
+      originalText = bytes.toString()
+    }
+    return originalText
   },
-};
+}
 
-export default encryption;
+export default encryption

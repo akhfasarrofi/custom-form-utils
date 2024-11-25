@@ -5,16 +5,16 @@
  * @param {Partial<T>} condition - The condition object to match.
  * @returns {T | undefined} - The first matching element, or undefined if no element matches the condition.
  */
-const find = <T>(array: T[], condition: Partial<T>): T | undefined => {
+function find<T>(array: T[], condition: Partial<T>): T | undefined {
   if (Object.keys(condition).length === 0) {
-    return undefined;
+    return undefined
   }
 
-  return array.find(item => {
+  return array.find((item) => {
     return (Object.keys(condition) as Array<keyof T>).every(
-      key => item[key] === condition[key]
-    );
-  });
-};
+      key => item[key] === condition[key],
+    )
+  })
+}
 
-export default find;
+export default find

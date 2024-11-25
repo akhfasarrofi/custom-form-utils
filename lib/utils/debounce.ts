@@ -5,22 +5,22 @@
  * @param delay - The delay in milliseconds.
  * @returns A debounced version of the function.
  */
-const debounce = <F extends (...args: Parameters<F>) => ReturnType<F>>(
+function debounce<F extends (...args: Parameters<F>) => ReturnType<F>>(
   func: F,
-  delay: number
-): ((...args: Parameters<F>) => void) => {
-  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+  delay: number,
+): ((...args: Parameters<F>) => void) {
+  let timeoutId: ReturnType<typeof setTimeout> | null = null
 
   return (...args: Parameters<F>): void => {
     if (timeoutId) {
-      clearTimeout(timeoutId);
+      clearTimeout(timeoutId)
     }
 
     timeoutId = setTimeout(() => {
-      func(...args);
-      timeoutId = null;
-    }, delay);
-  };
-};
+      func(...args)
+      timeoutId = null
+    }, delay)
+  }
+}
 
-export default debounce;
+export default debounce

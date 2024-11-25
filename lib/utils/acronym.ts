@@ -5,8 +5,8 @@
  * @returns {IAcronymResult} An object containing the generated background and acronym.
  */
 interface IAcronymResult {
-  background: string;
-  acronym: string;
+  background: string
+  acronym: string
 }
 /**
  * @example
@@ -24,28 +24,28 @@ const liniearGradient = [
   'linear-gradient(to top, #0cebeb, #20e3b2, #29ffc6)',
   'linear-gradient(to top, #D387AB, #E899DC)',
   'linear-gradient(to top, #96E4DF, #4DCCC6)',
-];
+]
 
-const getAcronym = (name: string): IAcronymResult => {
-  const splitName = name?.split(' ');
-  let acronym: string = name || '';
+function getAcronym(name: string): IAcronymResult {
+  const splitName = name?.split(' ')
+  let acronym: string = name || ''
 
   if (splitName && splitName.length > 1) {
     acronym = splitName.reduce(
       (response, word) => response + (word[0] || ''),
-      ''
-    );
+      '',
+    )
   }
 
-  acronym = acronym.slice(0, 2).toUpperCase();
+  acronym = acronym.slice(0, 2).toUpperCase()
 
-  const randomColorIndex =
-    (name || '')
+  const randomColorIndex
+    = (name || '')
       .split('')
-      .reduce((arr, next) => arr + (next.charCodeAt(0) || 0), 0) %
-    liniearGradient.length;
+      .reduce((arr, next) => arr + (next.charCodeAt(0) || 0), 0)
+      % liniearGradient.length
 
-  return { background: liniearGradient[randomColorIndex]!, acronym };
-};
+  return { background: liniearGradient[randomColorIndex]!, acronym }
+}
 
-export default getAcronym;
+export default getAcronym
