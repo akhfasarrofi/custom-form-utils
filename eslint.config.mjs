@@ -18,6 +18,7 @@ export default combine(
   antfu({
     ignores: [
       '**/.github/*',
+      '**/playground/*',
       '**/node_modules/*',
       '**/docs/*',
       '**/dist/*',
