@@ -1,41 +1,55 @@
-import { fileURLToPath } from 'node:url';
-
-import react from '@vitejs/plugin-react';
-import { glob } from 'glob';
-import { extname, relative } from 'path';
-import { defineConfig } from 'vite';
-import dts from 'vite-plugin-dts';
-import { libInjectCss } from 'vite-plugin-lib-inject-css';
+import react from '@vitejs/plugin-react'
+import { glob } from 'glob'
+import { extname, relative } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
-  plugins: [react(), libInjectCss(), dts({ include: ['lib'] })],
+  plugins: [
+    react(),
+    dts({
+      entryRoot: 'lib',
+      outDir: 'dist/types',
+    }),
+  ],
   build: {
     copyPublicDir: false,
     lib: {
-      entry: new URL('lib/main.ts', import.meta.url).pathname,
+      entry: new URL('lib/index.ts', import.meta.url).pathname,
       formats: ['es'],
+      fileName: format => `custom-form-utils.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react/jsx-runtime'],
+      external: [
+        'react',
+        'react-dom',
+        'crypto-js',
+        'dayjs',
+        'js-cookie',
+      ],
       input: Object.fromEntries(
-        // https://rollupjs.org/configuration-options/#input
         glob
           .sync('lib/**/*.{ts,tsx}', {
             ignore: ['lib/**/*.d.ts'],
           })
           .map(file => [
-            // 1. The name of the entry point
-            // lib/nested/foo.js becomes nested/foo
+            // Key for output structure
             relative('lib', file.slice(0, file.length - extname(file).length)),
-            // 2. The absolute path to the entry file
-            // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
+            // Absolute path from file
             fileURLToPath(new URL(file, import.meta.url)),
-          ])
+          ]),
       ),
       output: {
-        assetFileNames: 'assets/[name][extname]',
-        entryFileNames: '[name].js',
+        globals: {
+          'react': 'React',
+          'react-dom': 'ReactDOM',
+          'crypto-js': 'CryptoJS',
+          'dayjs': 'dayjs',
+          'js-cookie': 'Cookies',
+        },
       },
     },
+
   },
-});
+})

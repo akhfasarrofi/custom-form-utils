@@ -1,25 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+    "moduleResolution": "node",
     "module": "ESNext",
-    "skipLibCheck": true,
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
+    "target": "ESNext",
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "jsx": "react-jsx",
   },
-  "include": ["src", "lib", "vite.config.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }],
-  "extends": "@total-typescript/tsconfig/tsc/no-dom/library"
+  "include": ["lib/**/*"],
+  "exclude": ["node_modules", "dist", "playground"],
+  "references": [
+    { "path": "./tsconfig.node.json" }
+  ],
 }
